@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-RUTA = "https://docs.google.com/spreadsheets/d/1aVxN_nlhGUqh-79i5FKV-eNwMZJumZ2D/export?format=xlsx"
+FILE_ID = st.secrets["FILE_ID"]
+RUTA = f"https://docs.google.com/spreadsheets/d/{FILE_ID}/export?format=xlsx"
 HOJA = "Cash Flow Budget & Executed"
 
 ENCABEZADOS = [
