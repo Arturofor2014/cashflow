@@ -142,6 +142,15 @@ html {
 </div>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<a href="https://cuadro-de-mando-financiero-m5kczw8rezx8fx8dvfcz8z.streamlit.app/" target="_self"
+   style="position:fixed;top:14px;right:16px;z-index:9999;background:#0052FF;color:white;
+          font-weight:700;font-size:13px;padding:8px 18px;border-radius:8px;
+          text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+   ← Inicio
+</a>
+""", unsafe_allow_html=True)
+
 st.markdown('<div id="top"></div>', unsafe_allow_html=True)
 
 cols_numericas = ENCABEZADOS[1:]
