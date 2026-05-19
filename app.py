@@ -52,12 +52,29 @@ COLS_TURQUESA = [
 
 st.set_page_config(page_title="Cash Flow Dashboard", layout="wide")
 
+def check_password():
+    if st.session_state.get("authenticated"):
+        return
+    col = st.columns([1, 1.2, 1])[1]
+    with col:
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown("### 🔒 Acceso Restringido")
+        pwd = st.text_input("Contraseña", type="password", placeholder="Ingresa la contraseña")
+        if st.button("Ingresar", use_container_width=True):
+            if pwd == st.secrets["password"]:
+                st.session_state.authenticated = True
+                st.rerun()
+            else:
+                st.error("Contraseña incorrecta")
+    st.stop()
+
+check_password()
+
 st.markdown("""
-<meta name="viewport" content="width=1024">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 html {
     scroll-padding-top: 11rem;
-    min-width: 1024px;
 }
 .navbar {
     position: fixed;
@@ -120,11 +137,13 @@ html {
         padding-top: 6rem;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+        overflow-x: auto;
     }
     .navbar {
         top: 3rem;
         padding: 6px 8px;
     }
+    .navbar-title { font-size: clamp(18px, 5vw, 34px); }
 }
 </style>
 
